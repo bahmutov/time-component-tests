@@ -2,5 +2,8 @@
     "experimentalComponentTesting": true,
     "componentFolder": "src",
     "testFiles": "**/*.spec.js",
-    "video": false
+    "video": false,
+    "env": {
+        "coverage": false
+    }
 }
