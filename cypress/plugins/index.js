@@ -1,12 +1,8 @@
-
-const webpackPreprocessor = require('@cypress/webpack-preprocessor');
-const webpackConfig = require('../../webpack.config');
-
 module.exports = (on, config) => {
-  on('file:preprocessor', webpackPreprocessor({
-    watchOptions: {},
-    webpackOptions: {
-      module: webpackConfig.module
-    }
-  }))
+  // from the root of the project (folder with cypress.json file)
+  config.env.webpackFilename = 'webpack.config.js'
+  require('cypress-react-unit-test/plugins/load-webpack')(on, config)
+  // IMPORTANT to return the config object
+  // with the any changed environment variables
+  return config
 }
